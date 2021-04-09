@@ -1,8 +1,7 @@
 FROM alpine:latest
-MAINTAINER mbrizion
+LABEL key="mbrizion"
 
-RUN apk update
-RUN apk add nginx openssl
+RUN apk update && apk add nginx openssl
 RUN mkdir -p /run/nginx
 
 WORKDIR /var/www/
@@ -23,7 +22,6 @@ COPY style.css 		/var/www/style.css
 COPY favicon.ico 	/var/www/favicon.ico
 COPY nginx.conf 	/etc/nginx/nginx.conf
 COPY start.sh   	/www/
-RUN  chmod +x   	/www/start.sh
 CMD  sh         	/www/start.sh
 
 EXPOSE 80 443
