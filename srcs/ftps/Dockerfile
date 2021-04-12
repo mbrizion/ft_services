@@ -1,8 +1,7 @@
 FROM alpine:latest
 LABEL key="mbrizion"
 
-RUN apk update && apk add vsftpd openssl openrc
-RUN echo -e "pass\npass" | adduser -h / user
+RUN apk update && apk add vsftpd openssl
 
 RUN	openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 	-keyout /etc/vsftpd/vsftpd.key \
@@ -13,4 +12,4 @@ COPY vsftpd.conf	/etc/vsftpd/vsftpd.conf
 COPY start_ftps.sh  ./vsftpd/start_ftps.sh
 CMD  sh         	./vsftpd/start_ftps.sh
 
-EXPOSE 21
+EXPOSE 21 40000

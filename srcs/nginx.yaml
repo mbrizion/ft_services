@@ -18,8 +18,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
-  labels:
-    app: nginx
 spec:
   replicas: 1         #Create 1 pod matching with "template" description (line 26)
   selector:
@@ -32,5 +30,5 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx-service    #Take nginx image create with dockerfile
+        image: nginx    #Take nginx image create with dockerfile
         imagePullPolicy: Never  #without this it will look for an image online.
