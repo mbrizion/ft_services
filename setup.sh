@@ -42,19 +42,19 @@ kubectl apply -f srcs/metallb.yaml
 # kubectl apply -f srcs/phpmyadmin.yaml
 
 # INFLUXDB
-echo $YELLOW"Installing influxdb"$END
-docker build -t influxdb ./srcs/influxdb
-kubectl apply -f srcs/influxdb.yaml
+# echo $YELLOW"Installing influxdb"$END
+# docker build -t influxdb ./srcs/influxdb
+# kubectl apply -f srcs/influxdb.yaml
 
 # GRAFANA
-echo $YELLOW"Installing grafana"$END
-docker build -t grafana ./srcs/grafana
-kubectl apply -f srcs/grafana.yaml
+# echo $YELLOW"Installing grafana"$END
+# docker build -t grafana ./srcs/grafana
+# kubectl apply -f srcs/grafana.yaml
 
 # FTPS
-# echo $YELLOW"Installing ftps"$END
-# docker build -t ftps ./srcs/ftps
-# kubectl apply -f srcs/ftps.yaml
+echo $YELLOW"Installing ftps"$END
+docker build -t ftps ./srcs/ftps
+kubectl apply -f srcs/ftps.yaml
 
 echo $YELLOW"Starting dashboard..."$END
 minikube dashboard &
