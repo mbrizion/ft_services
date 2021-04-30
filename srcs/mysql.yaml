@@ -6,6 +6,7 @@ spec:
   selector:
     app: wordpress
     tier: mysql
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3306
@@ -34,8 +35,6 @@ spec:
     matchLabels:
       app: wordpress
       tier: mysql
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:

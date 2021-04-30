@@ -1,2 +1,1 @@
-php-fpm7
-nginx -c /etc/nginx/nginx.conf
+exec /usr/bin/supervisord -c /etc/supervisord.conf

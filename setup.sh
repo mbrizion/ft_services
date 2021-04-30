@@ -22,34 +22,34 @@ minikube addons enable metallb
 kubectl apply -f srcs/metallb.yaml
 
 # MYSQL
-# echo $YELLOW"Installing MySql"$END
-# docker build -t mysql ./srcs/mysql
-# kubectl apply -f srcs/mysql.yaml
+echo $YELLOW"Installing MySql"$END
+docker build -t mysql ./srcs/mysql
+kubectl apply -f srcs/mysql.yaml
 
 # NGINX
-# echo $YELLOW"Installing nginx"$END
-# docker build -t nginx ./srcs/nginx
-# kubectl apply -f srcs/nginx.yaml
+echo $YELLOW"Installing nginx"$END
+docker build -t nginx ./srcs/nginx
+kubectl apply -f srcs/nginx.yaml
 
 # WORDPRESS
-# echo $YELLOW"Installing Wordpress"$END
-# docker build -t wordpress ./srcs/wordpress
-# kubectl apply -f srcs/wordpress.yaml
+echo $YELLOW"Installing Wordpress"$END
+docker build -t wordpress ./srcs/wordpress
+kubectl apply -f srcs/wordpress.yaml
 
 # PMA
-# echo $YELLOW"Installing PhpMyAmdin"$END
-# docker build -t phpmyadmin ./srcs/phpmyadmin
-# kubectl apply -f srcs/phpmyadmin.yaml
+echo $YELLOW"Installing PhpMyAmdin"$END
+docker build -t phpmyadmin ./srcs/phpmyadmin
+kubectl apply -f srcs/phpmyadmin.yaml
 
 # INFLUXDB
-# echo $YELLOW"Installing influxdb"$END
-# docker build -t influxdb ./srcs/influxdb
-# kubectl apply -f srcs/influxdb.yaml
+echo $YELLOW"Installing influxdb"$END
+docker build -t influxdb ./srcs/influxdb
+kubectl apply -f srcs/influxdb.yaml
 
 # GRAFANA
-# echo $YELLOW"Installing grafana"$END
-# docker build -t grafana ./srcs/grafana
-# kubectl apply -f srcs/grafana.yaml
+echo $YELLOW"Installing grafana"$END
+docker build -t grafana ./srcs/grafana
+kubectl apply -f srcs/grafana.yaml
 
 # FTPS
 echo $YELLOW"Installing ftps"$END

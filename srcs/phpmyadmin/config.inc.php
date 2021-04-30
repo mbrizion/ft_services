@@ -9,5 +9,4 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
-$cfg['ThemeDefault'] = 'metro';
 $cfg['PmaAbsoluteUri'] = '/';

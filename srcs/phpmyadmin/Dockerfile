@@ -1,7 +1,7 @@
-FROM alpine:latest
+FROM alpine:3.13
 LABEL key="mbrizion"
 
-RUN apk update && apk add nginx php php7-common \
+RUN apk update && apk add nginx telegraf supervisor php php7-common \
 	php7-iconv php7-json php7-gd php7-curl php7-xml php7-opcache \
 	php7-mysqli php7-imap php7-cgi php7-pdo php7-pdo_mysql \
 	php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext \
@@ -26,8 +26,9 @@ RUN mkdir -p /usr/share/webapps/ ;\
 # RUN touch /usr/share/webapps/phpmyadmin/index.php ;\
 # 	echo "<?php phpinfo(); ?>" > /usr/share/webapps/phpmyadmin/index.php
 
+COPY supervisord.conf	/etc/supervisord.conf
 COPY config.inc.php /usr/share/webapps/phpmyadmin/
-
+COPY telegraf.conf /etc/telegraf/
 COPY start_pma.sh ./start_pma.sh
 
 CMD ["sh", "start_pma.sh"]

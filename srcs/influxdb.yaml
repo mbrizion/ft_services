@@ -6,6 +6,7 @@ spec:
   selector:
     app: grafana
     tier: influxdb
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 8086
@@ -34,8 +35,6 @@ spec:
     matchLabels:
       app: grafana
       tier: influxdb
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
