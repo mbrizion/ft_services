@@ -28,40 +28,40 @@ sed -i -e "s/$MINIKUBE_IP/minikube_ip/g" srcs/metallb.yaml
 echo $YELLOW"Starting dashboard..."$END
 minikube dashboard &
 
+# INFLUXDB
+echo $YELLOW"Installing influxdb"$END
+docker build -t influxdb ./srcs/influxdb
+kubectl apply -f srcs/influxdb.yaml
+
 # MYSQL
 echo $YELLOW"Installing MySql"$END
 docker build -t mysql --build-arg minikube_ip=$MINIKUBE_IP ./srcs/mysql
 kubectl apply -f srcs/mysql.yaml
-
-# NGINX
-# echo $YELLOW"Installing nginx"$END
-# docker build -t nginx ./srcs/nginx
-# kubectl apply -f srcs/nginx.yaml
 
 # WORDPRESS
 echo $YELLOW"Installing Wordpress"$END
 docker build -t wordpress ./srcs/wordpress
 kubectl apply -f srcs/wordpress.yaml
 
-# # PMA
-# echo $YELLOW"Installing PhpMyAmdin"$END
-# docker build -t phpmyadmin ./srcs/phpmyadmin
-# kubectl apply -f srcs/phpmyadmin.yaml
+# NGINX
+echo $YELLOW"Installing nginx"$END
+docker build -t nginx ./srcs/nginx
+kubectl apply -f srcs/nginx.yaml
 
-# # INFLUXDB
-# echo $YELLOW"Installing influxdb"$END
-# docker build -t influxdb ./srcs/influxdb
-# kubectl apply -f srcs/influxdb.yaml
+# PMA
+echo $YELLOW"Installing PhpMyAmdin"$END
+docker build -t phpmyadmin ./srcs/phpmyadmin
+kubectl apply -f srcs/phpmyadmin.yaml
 
-# # GRAFANA
-# echo $YELLOW"Installing grafana"$END
-# docker build -t grafana ./srcs/grafana
-# kubectl apply -f srcs/grafana.yaml
+# GRAFANA
+echo $YELLOW"Installing grafana"$END
+docker build -t grafana ./srcs/grafana
+kubectl apply -f srcs/grafana.yaml
 
 # FTPS
-# echo $YELLOW"Installing ftps"$END
-# docker build -t ftps --build-arg minikube_ip=$MINIKUBE_IP ./srcs/ftps
-# kubectl apply -f srcs/ftps.yaml
+echo $YELLOW"Installing ftps"$END
+docker build -t ftps --build-arg minikube_ip=$MINIKUBE_IP ./srcs/ftps
+kubectl apply -f srcs/ftps.yaml
 
 
 echo  $GREEN"pma	:\nid	: user\npass	: password"$END
